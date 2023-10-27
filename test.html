@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>调用API示例</title>
+</head>
+<body>
+    <button id="getDataButton">获取数据</button>
+    <div id="output"></div>
+
+    <script>
+        // 在这里嵌入你的JavaScript代码
+        document.getElementById('getDataButton').addEventListener('click', function() {
+            fetch('http://127.0.0.1:5000/api/items/6')
+                .then(response => response.json())
+                .then(data => {
+                    // 将返回的数据显示在页面上
+                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error('错误：', error);
+                });
+        });
+    </script>
+</body>
+</html>
